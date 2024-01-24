@@ -1,0 +1,29 @@
+﻿@model WebMVC.Models.EmpLogin
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h2>Employee Login Page</h2>
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<form asp-controller="EmpInfoes" asp-action="Login" method="post">
+    <div class="form-group">
+        <label asp-for="Email">Email:</label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PassCode">PassCode:</label>
+        <input asp-for="PassCode" type="password" class="form-control" />
+        <span asp-validation-for="PassCode" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>
